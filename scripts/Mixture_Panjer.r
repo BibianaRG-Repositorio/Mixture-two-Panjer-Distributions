@@ -4,13 +4,27 @@
 # ===================================================================
 
 # ----------------------
+# Install packages
+# ----------------------
+
+install_and_load <- function(packages){
+  new_packages <- packages[!(packages %in% installed.packages()[,"Package"])]
+  if(length(new_packages)) install.packages(new_packages)
+  invisible(lapply(packages, library, character.only = TRUE))
+}
+
+
+
+# ----------------------
 # Load required libraries
 # ----------------------
-library(reshape2)
-library(ggplot2)
-library(gamlss)
-library(gamlss.dist)
-library(polyaAeppli)
+install_and_load(c(
+  "reshape2",
+  "ggplot2",
+  "gamlss", 
+  "gamlss.dist",
+  "polyaAeppli"
+))
 
 # ----------------------
 # Define observed data
@@ -177,6 +191,30 @@ cat("Binomial:", Chibinom, "\n")
 cat("Negative Binomial:", ChiBN, "\n")
 cat("Zero-Modified NB:", ChiBN_ZM, "\n")
 cat("Polya-Aeppli:", ChiPolya, "\n")
+
+
+# ------------------------
+# Prepare data for plotting
+# ------------------------
+
+plot_data <- data.frame(
+  k = k,
+  Portafolio = C0,
+  Binomial = binomial,
+  Poisson = Poisson,
+  ZeroModifiedNB = ZM_NB_dist,
+  PolyaAeppli = polyaAeppli_dist,
+  Panjer = Panjer
+)
+
+plot_data_melted <- reshape2::melt(plot_data, id.vars = "k")
+colnames(plot_data_melted) <- c("k", "Distribution", "Frequency")
+
+plot_data_melted$Linetype <- "Non-Mixture"
+
+
+
+
 
 
 # ------------------------
