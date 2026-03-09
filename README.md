@@ -53,12 +53,11 @@ All computations and simulations were performed using **R**.
 ---
 
 # Repository Structure
-.
-├── scripts
-│ ├── distribution_models.R
-│ └── mixture_panjer_model.R
+
+├── scripts 
+│ └── mixture_panjer_model.R 
 ├── data
-│ └── claims_frequency_data.csv
+│ └── article_data.pdf
 ├── figures
 │ └── distribution_comparison_plot.png
 └── README.md
