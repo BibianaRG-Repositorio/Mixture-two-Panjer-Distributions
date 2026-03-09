@@ -53,7 +53,7 @@ All computations and simulations were performed using **R**.
 ---
 
 # Repository Structure
-
+```
 ├── scripts 
 │ └── mixture_panjer_model.R 
 ├── data
@@ -61,5 +61,7 @@ All computations and simulations were performed using **R**.
 ├── figures
 │ └── distribution_comparison_plot.png
 └── README.md
+
+```
 
 
