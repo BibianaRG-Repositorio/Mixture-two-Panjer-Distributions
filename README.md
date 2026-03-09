@@ -1,7 +1,4 @@
----
-title: "Mixture-two-Panjer-Distributions"
-output: github_document
----
+
 
 # Mixture-two-Panjer-Distributions
 
@@ -67,28 +64,3 @@ All computations and simulations were performed using **R**.
 └── README.md
 
 
-
----
-
-# Requirements
-
-The analysis requires the following **R packages**:
-
-```{r eval=FALSE}
-install.packages(c(
-  "ggplot2",
-  "reshape2",
-  "gamlss",
-  "gamlss.dist",
-  "polyaAeppli"
-))
-
-
-Load them in R:
-
-
-library(ggplot2)
-library(reshape2)
-library(gamlss)
-library(gamlss.dist)
-library(polyaAeppli)
